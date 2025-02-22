@@ -1,4 +1,5 @@
 from django.db import models
+from .enums import ProjectRoleEnum
 
 
 class ProjectQuerySet(models.QuerySet):
@@ -35,4 +36,4 @@ class ProjectMemberManager(models.Manager):
 
         def get_user_roles(self, project, user):
             member = self.filter(project=project, user=user)
-            return member.role if member else None
+            return member.role if member else ProjectRoleEnum.PROJECT_MEMBER

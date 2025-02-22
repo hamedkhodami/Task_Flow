@@ -8,12 +8,16 @@ from .forms import ProjectForm
 from .mixins import ProjectManagerRequiredMixin
 from apps.core.utils import validate_form, toast_form_errors
 
+
 class ProjectListView(ListView):
 
     model = ProjectModel
     template_name = "project/project_list.html"
     context_object_name = "projects"
     ordering = ["-start_date"]
+
+    def get_queryset(self):
+        return ProjectModel.objects.filter(members__user= self.request.user)
 
 
 class ProjectDetailView(DetailView):

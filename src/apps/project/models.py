@@ -22,7 +22,7 @@ class ProjectModel(BaseModel):
     start_date = models.DateField(_("Start Date"), default=timezone.now)
     end_date = models.DateField(_("End Date"), blank=True, null=True)
 
-    objects = ProjectManager
+    objects = ProjectManager()
 
     class Meta:
         verbose_name = _("Project")
@@ -38,7 +38,7 @@ class ProjectModel(BaseModel):
         return get_jalali_date(self.start_date)
 
     def get_jalali_end_date(self):
-        return get_jalali_date(self.end_date)
+        return get_jalali_date(self.end_date) if self.end_date else _("None Set")
 
     def get_duration(self):
         if self.end_date and self.start_date:
@@ -63,7 +63,7 @@ class ProjectMemberModel(BaseModel):
     role = models.CharField(_("Role"), max_length=20, choices=ROLE.choices, default=ROLE.PROJECT_MEMBER)
     joined_at = models.DateTimeField(_("Joined At"), auto_now_add=True)
 
-    objects = ProjectMemberManager
+    objects = ProjectMemberManager()
 
     class Meta:
         unique_together = ("project", "user")

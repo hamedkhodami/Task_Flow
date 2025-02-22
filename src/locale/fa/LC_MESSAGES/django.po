@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-16 22:09+0330\n"
+"POT-Creation-Date: 2025-02-22 22:59+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,6 +187,7 @@ msgstr "زمان ویرایش"
 
 #: .\apps\account\models.py:53 .\apps\account\models.py:113
 #: .\apps\project\admin.py:42 .\apps\project\models.py:62
+#: .\apps\task\models.py:59
 msgid "User"
 msgstr "کاربر"
 
@@ -195,10 +196,8 @@ msgid "Users"
 msgstr "کاربران"
 
 #: .\apps\account\models.py:61
-#, fuzzy
-#| msgid "Name"
 msgid "No Name"
-msgstr "نام"
+msgstr "بدون نام"
 
 #: .\apps\account\models.py:114
 msgid "Melli code"
@@ -247,20 +246,14 @@ msgid "You have been logged out"
 msgstr "شما خارج شدید"
 
 #: .\apps\account\views.py:58
-#, fuzzy
-#| msgid "Profile updated successfully"
 msgid "Your profile has been updated successfully"
-msgstr "پروفایل با موفقیت بروزرسانی شد"
+msgstr "پروفایل شما با موفقیت بروزرسانی شد"
 
 #: .\apps\core\models.py:6
-#, fuzzy
-#| msgid "Creation time"
 msgid "Creation Time"
 msgstr "زمان ایجاد"
 
 #: .\apps\core\models.py:7
-#, fuzzy
-#| msgid "Update time"
 msgid "Update Time"
 msgstr "زمان ویرایش"
 
@@ -287,24 +280,28 @@ msgstr "لحظاتی قبل"
 msgid "Entered data is not correct."
 msgstr "داده وارد شده صحیح نیست."
 
-#: .\apps\project\admin.py:19 .\apps\project\models.py:21
+#: .\apps\project\admin.py:19 .\apps\project\forms.py:20
+#: .\apps\project\models.py:21 .\apps\task\forms.py:17 .\apps\task\models.py:23
 msgid "Status"
 msgstr "وضعیت"
 
-#: .\apps\project\admin.py:24 .\apps\project\models.py:22
+#: .\apps\project\admin.py:24 .\apps\project\forms.py:21
+#: .\apps\project\models.py:22
 msgid "Start Date"
 msgstr "تاریخ شروع"
 
-#: .\apps\project\admin.py:27
+#: .\apps\project\admin.py:27 .\apps\task\admin.py:25
 msgid "Not Set"
 msgstr "تنظیم نشده"
 
-#: .\apps\project\admin.py:29 .\apps\project\models.py:23
+#: .\apps\project\admin.py:29 .\apps\project\forms.py:22
+#: .\apps\project\models.py:23
 msgid "End Date"
 msgstr "تاریخ پایان"
 
 #: .\apps\project\admin.py:47 .\apps\project\apps.py:7
 #: .\apps\project\models.py:28 .\apps\project\models.py:61
+#: .\apps\task\models.py:22
 msgid "Project"
 msgstr "پروژه"
 
@@ -320,7 +317,7 @@ msgstr "تلریخ پیوستن"
 msgid "In progress"
 msgstr "در حال انجام"
 
-#: .\apps\project\enums.py:11
+#: .\apps\project\enums.py:11 .\apps\task\enums.py:9
 msgid "Completed"
 msgstr "انجام شده"
 
@@ -336,13 +333,22 @@ msgstr "مدیر پروژه"
 msgid "Project Member"
 msgstr "عضو پروژه"
 
+#: .\apps\project\forms.py:18
+msgid "Project Title"
+msgstr "عنوان پروژه"
+
+#: .\apps\project\forms.py:19 .\apps\project\models.py:19
+#: .\apps\task\forms.py:16 .\apps\task\models.py:21
+msgid "Description"
+msgstr "توضیحات"
+
+#: .\apps\project\mixins.py:22
+msgid "You do not have permission to modify this project."
+msgstr "شما اجازه تغییر این پروژه را ندارید"
+
 #: .\apps\project\models.py:18
 msgid "Project title"
 msgstr "عنوان پروژه"
-
-#: .\apps\project\models.py:19
-msgid "Description"
-msgstr "توضیحات"
 
 #: .\apps\project\models.py:20
 msgid "Owner"
@@ -351,6 +357,12 @@ msgstr "مالک"
 #: .\apps\project\models.py:29
 msgid "Projects"
 msgstr "پروژه ها"
+
+#: .\apps\project\models.py:41
+#, fuzzy
+#| msgid "Not Set"
+msgid "None Set"
+msgstr "تنظیم نشده"
 
 #: .\apps\project\models.py:64
 msgid "Joined At"
@@ -371,6 +383,183 @@ msgstr "عنوان پروژه حاوی کاراکترهای نامعتبر اس�
 #: .\apps\project\validators.py:18
 msgid "This user is already a member of this project."
 msgstr "این کاربر قبلاً عضو این پروژه شده است"
+
+#: .\apps\project\views.py:41
+msgid "Project created successfully."
+msgstr "پروژه با موفقیت بروزرسانی شد"
+
+#: .\apps\project\views.py:58
+msgid "Project updated successfully."
+msgstr "پروژه با موفقیت بروزرسانی شد"
+
+#: .\apps\project\views.py:76
+msgid "Project deleted successfully."
+msgstr "پروژه با موفقیت حذف شد"
+
+#: .\apps\task\admin.py:27 .\apps\task\forms.py:19 .\apps\task\models.py:25
+msgid "Due Date"
+msgstr " تاریخ مقرر"
+
+#: .\apps\task\admin.py:34
+msgid "Comment Count"
+msgstr "تعداد نظرات"
+
+#: .\apps\task\admin.py:40
+msgid "Assigned Users Count"
+msgstr " تعداد کاربران اختصاص داده شده"
+
+#: .\apps\task\admin.py:47
+msgid "Is Overdue"
+msgstr "به‌تأخیر افتاده"
+
+#: .\apps\task\enums.py:7
+msgid "Pending"
+msgstr "در انتظار"
+
+#: .\apps\task\enums.py:8
+msgid "In Progress"
+msgstr "در حال انجام"
+
+#: .\apps\task\enums.py:10
+msgid "Cancelled"
+msgstr "لغو شده"
+
+#: .\apps\task\enums.py:15
+msgid "Low"
+msgstr "کم"
+
+#: .\apps\task\enums.py:16
+msgid "Medium"
+msgstr "متوسط"
+
+#: .\apps\task\enums.py:17
+msgid "High"
+msgstr "بالا"
+
+#: .\apps\task\enums.py:18
+msgid "Critical"
+msgstr "حیاتی"
+
+#: .\apps\task\enums.py:23
+msgid "Individual"
+msgstr "فردی"
+
+#: .\apps\task\enums.py:24
+msgid "Team"
+msgstr "کروهی"
+
+#: .\apps\task\forms.py:15 .\apps\task\models.py:20
+msgid "Task Title"
+msgstr "عنوان"
+
+#: .\apps\task\forms.py:18 .\apps\task\models.py:24
+msgid "Priority"
+msgstr "اولویت"
+
+#: .\apps\task\forms.py:20
+msgid "Assigned Users"
+msgstr "کاربران اختصاص داده شده"
+
+#: .\apps\task\forms.py:39
+msgid "Comment"
+msgstr "کامنت"
+
+#: .\apps\task\forms.py:54 .\apps\task\models.py:32 .\apps\task\models.py:58
+#: .\apps\task\models.py:74
+msgid "Task"
+msgstr "وضیفه"
+
+#: .\apps\task\forms.py:55 .\apps\task\models.py:75
+msgid "Assigned User"
+msgstr "کاربران اختصاص داده شده"
+
+#: .\apps\task\forms.py:56 .\apps\task\models.py:76
+msgid "Assignment Type"
+msgstr "نوع تکلیف"
+
+#: .\apps\task\mixins.py:16
+msgid "You do not have permission to modify this task"
+msgstr "شما اجازه تغییر این وظیفه را ندارید"
+
+#: .\apps\task\mixins.py:25
+msgid "You are not assigned to this task."
+msgstr "شما به این وظیفه اختصاص داده نشده‌اید"
+
+#: .\apps\task\mixins.py:38
+msgid "Only project admins can manage tasks"
+msgstr "تنها مدیران پروژه می‌توانند وظایف را مدیریت کنند"
+
+#: .\apps\task\models.py:26
+msgid "Created By"
+msgstr "ایجاد شده توسط"
+
+#: .\apps\task\models.py:27
+msgid "Assigned To"
+msgstr "اختصاص داده شده به"
+
+#: .\apps\task\models.py:33
+msgid "Tasks"
+msgstr "وظایف"
+
+#: .\apps\task\models.py:60
+msgid "Comment Content"
+msgstr "محتوای نظر"
+
+#: .\apps\task\models.py:63
+msgid "Task Comment"
+msgstr "نظر وظیفه"
+
+#: .\apps\task\models.py:64
+msgid "Task Comments"
+msgstr "نظرهای وظیفه"
+
+#: .\apps\task\models.py:79
+msgid "Task Assignment"
+msgstr "اختصاص وظیفه"
+
+#: .\apps\task\models.py:80
+msgid "Task Assignments"
+msgstr "اختصاص وظیفه ها"
+
+#: .\apps\task\validators.py:11
+msgid "Due date cannot be in the past."
+msgstr "تاریخ مقرر نمی‌تواند در گذشته باشد."
+
+#: .\apps\task\validators.py:16
+msgid "Task title must be at least 5 characters long."
+msgstr "عنوان وظیفه باید حداقل ۵ کاراکتر باشد."
+
+#: .\apps\task\validators.py:21
+msgid "Comment cannot be empty or contain only whitespace."
+msgstr "نظر نمی‌تواند خالی یا فقط شامل فاصله باشد."
+
+#: .\apps\task\validators.py:26
+msgid "An individual task must have an assigned user."
+msgstr "یک وظیفه‌ی فردی باید کاربر اختصاص داده شده داشته باشد."
+
+#: .\apps\task\views.py:39
+msgid "Task created successfully"
+msgstr "وظیفه با موفقیت ایجاد شد"
+
+#: .\apps\task\views.py:52
+msgid "Task updated successfully"
+msgstr "وظیفه با موفقیت افزوده شدند"
+
+#: .\apps\task\views.py:63
+msgid "Task deleted successfully"
+msgstr "وظیفه با موفقیت حذف شد"
+
+#: .\apps\task\views.py:74
+msgid "Task status updated successfully"
+msgstr "وظیفه با موفقیت افزوده شدند"
+
+#: .\apps\task\views.py:88
+msgid "Comment added successfully"
+msgstr "نظر با موفقیت افزوده شدند"
+
+#: .\apps\task\views.py:99
+msgid "Task assigned successfully"
+msgstr "وظیفه با موفقیت اختصاص داده شد"
 
 #: .\config\settings\base.py:116
 msgid "Persian"
@@ -404,9 +593,6 @@ msgstr "فارسی"
 
 #~ msgid "Password is not correct"
 #~ msgstr "رمزعبور صحیح نمی‌باشد"
-
-#~ msgid "Password changed successfully"
-#~ msgstr "گذرواژه با موفقیت تغییر کرد"
 
 #~ msgid "Subscription end warning"
 #~ msgstr "هشدار پایان اشتراک"
@@ -464,9 +650,6 @@ msgstr "فارسی"
 
 #~ msgid "Instructors"
 #~ msgstr "مدرسین"
-
-#~ msgid "Title"
-#~ msgstr "عنوان"
 
 #~ msgid "Short description"
 #~ msgstr "توضیح کوتاه"
@@ -554,12 +737,6 @@ msgstr "فارسی"
 
 #~ msgid "Verified"
 #~ msgstr "تایید شده"
-
-#~ msgid "Course comment"
-#~ msgstr "کامنت"
-
-#~ msgid "Course comments"
-#~ msgstr "کامنت‌های دوره"
 
 #~ msgid "Is finished"
 #~ msgstr "تمام شده"
@@ -989,18 +1166,12 @@ msgstr "فارسی"
 #~ msgid "Item successfully modified"
 #~ msgstr "آیتم با موفقیت تغییر کرد"
 
-#~ msgid "Item deleted successfully"
-#~ msgstr "آیتم با موفقیت حذف شد"
-
 #~ msgid "Items saved successfully. You can see results down below"
 #~ msgstr ""
 #~ "موارد با موفقیت ثبت شد. اکنون می‌توانید نتایج را در زیر مشاهده فرمایید"
 
 #~ msgid "Services fee updated"
 #~ msgstr "هزینه خدمات بروزرسانی شد"
-
-#~ msgid "Item updated successfully"
-#~ msgstr "آیتم با موفقیت بروزرسانی شد"
 
 #~ msgid "Category successfully added"
 #~ msgstr "دسته بندی با موفقیت اضافه شد"
@@ -1011,16 +1182,8 @@ msgstr "فارسی"
 #~ msgid "Changes committed successfully"
 #~ msgstr "تغییرات با موفقیت ثبت شد"
 
-#~ msgid "Materials added successfully"
-#~ msgstr "مواد با موفقیت افزوده شدند"
-
 #~ msgid "Please enter field correctly"
 #~ msgstr "لطفا فیلد هارا به درستی پر نمایید"
-
-#, fuzzy
-#~| msgid "Materials added successfully"
-#~ msgid "Material updated successfully"
-#~ msgstr "مواد با موفقیت افزوده شدند"
 
 #, fuzzy
 #~| msgid "Changes committed successfully"
