@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.shortcuts import get_object_or_404
 
 from .models import ProjectModel
 from .forms import ProjectForm
@@ -25,6 +26,9 @@ class ProjectDetailView(DetailView):
     model = ProjectModel
     template_name = "project/project_detail.html"
     context_object_name = "project"
+
+    def get_object(self):
+        return get_object_or_404(ProjectModel.objects.user_projects(self.request.user), pk=self.kwargs.get('pk'))
 
 
 class ProjectCreateView(ProjectManagerRequiredMixin, CreateView):

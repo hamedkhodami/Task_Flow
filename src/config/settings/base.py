@@ -35,6 +35,7 @@ CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED', 'http://127.0.0.1',).split(',')
 
 #---Application definitio-----------------------------------------
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +53,9 @@ INSTALLED_APPS = [
     'apps.public.apps.PublicConfig',
     'apps.integration.apps.IntegrationConfig',
     'apps.ai_assistant.apps.AiAssistantConfig',
+
+    #Django modules
+
 ]
 
 MIDDLEWARE = [
@@ -88,6 +92,12 @@ TEMPLATES = [
 
 #---WSGI---------------------------------------------------------
 WSGI_APPLICATION = 'config.wsgi.application'
+#----------------------------------------------------------------
+
+
+
+#---ASGI---------------------------------------------------------
+ASGI_APPLICATION = 'config.routing.application'
 #----------------------------------------------------------------
 
 
@@ -170,4 +180,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #---Auth user model---------------------------------------------
 AUTH_USER_MODEL = 'account.UserModel'
+#---------------------------------------------------------------
+
+
+
+#---redis-------------------------------------------------------
+REDIS_CONFIG = {
+    'active': int(os.getenv('REDIS_ACTIVE', 0)),  # 1 redis is connected, 0 not connected
+    'host': os.getenv('REDIS_HOST', 'localhost'),
+    'port': int(os.getenv('REDIS_PORT', 6379))
+}
 #---------------------------------------------------------------

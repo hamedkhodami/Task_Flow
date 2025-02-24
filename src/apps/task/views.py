@@ -19,12 +19,20 @@ class TaskListView(ListView):
     context_object_name = 'tasks'
     ordering = 'due_date'
 
+    def get_queryset(self):
+        user = self.request.user
+        return TaskModel.objects.get_tasks_for_user(user)
+
 
 class TaskDetailView(DetailView):
 
     model = TaskModel
     template_name = 'task/task_detail.html'
     context_object_name = 'task'
+
+    def get_object(self):
+        user = self.request.user
+        return get_object_or_404(TaskModel.objects.get_tasks_for_user(user), pk=self.kwargs.get('pk'))
 
 
 class TaskCreateView(ProjectAdminRequiredMixin, CreateView):
@@ -73,6 +81,10 @@ class TaskStatusUpdateView(TaskAssigneeRequiredMixin, UpdateView):
     def form_valid(self, form):
         messages.success(self.request, _('Task status updated successfully'))
         return super().form_valid(form)
+
+    def get_object(self):
+        user = self.request.user
+        return get_object_or_404(TaskModel.objects.get_tasks_for_user(user), pk=self.kwargs.get('pk'))
 
 
 class TaskCommentCreateView(LoginRequiredMixin, CreateView):
