@@ -36,6 +36,8 @@ CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED', 'http://127.0.0.1',).split(',')
 #---Application definitio-----------------------------------------
 INSTALLED_APPS = [
     'channels',
+    'daphne',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
     'apps.public.apps.PublicConfig',
     'apps.integration.apps.IntegrationConfig',
     'apps.ai_assistant.apps.AiAssistantConfig',
+    'apps.chat.apps.ChatConfig',
 
     #Django modules
 
@@ -90,14 +93,8 @@ TEMPLATES = [
 
 
 
-#---WSGI---------------------------------------------------------
-WSGI_APPLICATION = 'config.wsgi.application'
-#----------------------------------------------------------------
-
-
-
 #---ASGI---------------------------------------------------------
-ASGI_APPLICATION = 'config.routing.application'
+ASGI_APPLICATION = 'config.asgi.application'
 #----------------------------------------------------------------
 
 
@@ -191,3 +188,13 @@ REDIS_CONFIG = {
     'port': int(os.getenv('REDIS_PORT', 6379))
 }
 #---------------------------------------------------------------
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
