@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 22:59+0330\n"
+"POT-Creation-Date: 2025-03-04 22:22+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,550 +18,557 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\apps\account\admin.py:28 .\apps\account\admin.py:63
+#: apps/account/admin.py:28 apps/account/admin.py:63
 msgid "Personal info"
 msgstr "اطلاعات شخصی"
 
-#: .\apps\account\admin.py:29
+#: apps/account/admin.py:29
 msgid "Verifications"
 msgstr "تاییدیه‌ ها"
 
-#: .\apps\account\admin.py:30
+#: apps/account/admin.py:30
 msgid "Permissions"
 msgstr "مجوزها"
 
-#: .\apps\account\admin.py:31 .\apps\account\models.py:25
-#: .\apps\account\models.py:40
+#: apps/account/admin.py:31 apps/account/models.py:25 apps/account/models.py:40
 msgid "Accesses"
 msgstr "دسترسی ها"
 
-#: .\apps\account\admin.py:32
+#: apps/account/admin.py:32
 msgid "Dates"
 msgstr "تاریخ ها"
 
-#: .\apps\account\admin.py:64
+#: apps/account/admin.py:64
 msgid "Place info"
 msgstr "اطلاعات مجموعه"
 
-#: .\apps\account\admin.py:67 .\apps\account\models.py:118
+#: apps/account/admin.py:67 apps/account/models.py:118
 msgid "Place name"
 msgstr "نام مجموعه"
 
-#: .\apps\account\apps.py:8
+#: apps/account/apps.py:8
 msgid "Account"
 msgstr "حساب ها"
 
-#: .\apps\account\enums.py:8
+#: apps/account/enums.py:8
 msgid "Viewer"
 msgstr "بیننده"
 
-#: .\apps\account\enums.py:9
+#: apps/account/enums.py:9
 msgid "General admin"
 msgstr "مدیر عمومی"
 
-#: .\apps\account\enums.py:10
+#: apps/account/enums.py:10
 msgid "Project admin"
 msgstr "مدیر پروژه"
 
-#: .\apps\account\enums.py:11
+#: apps/account/enums.py:11
 msgid "Project member"
 msgstr "عضو پروژه"
 
-#: .\apps\account\enums.py:17
+#: apps/account/enums.py:17
 msgid "Male"
 msgstr "مرد"
 
-#: .\apps\account\enums.py:18
+#: apps/account/enums.py:18
 msgid "Female"
 msgstr "زن"
 
-#: .\apps\account\forms.py:16 .\apps\account\models.py:36
+#: apps/account/forms.py:16 apps/account/models.py:36
 msgid "Phone number"
 msgstr "شماره تلفن"
 
-#: .\apps\account\forms.py:17
+#: apps/account/forms.py:17
 msgid "Password"
 msgstr "گذرواژه"
 
-#: .\apps\account\forms.py:18
+#: apps/account/forms.py:18
 msgid "Password repeat"
 msgstr "تکرار گذرواژه"
 
-#: .\apps\account\forms.py:30 .\apps\account\forms.py:116
+#: apps/account/forms.py:30 apps/account/forms.py:116
 msgid "Enter a valid phone number"
 msgstr "یک شماره تلفن معتبر وارد کنید"
 
-#: .\apps\account\forms.py:40 .\apps\account\forms.py:136
+#: apps/account/forms.py:40 apps/account/forms.py:136
 msgid "Passwords are not match."
 msgstr "گذروازه یکسان نیست."
 
-#: .\apps\account\forms.py:55
+#: apps/account/forms.py:55
 msgid "09__"
 msgstr "09__"
 
-#: .\apps\account\forms.py:84
+#: apps/account/forms.py:84
 msgid "Enter a valid username"
 msgstr "لطفاً یک نام کاربری معتبر وارد کنید."
 
-#: .\apps\account\forms.py:86
+#: apps/account/forms.py:86
 msgid "Username or password is not correct"
 msgstr "نام کاربری یا رمزعبور نادرست است"
 
-#: .\apps\account\forms.py:101
+#: apps/account/forms.py:101
 msgid "There is an issue! please try again"
 msgstr "خطایی رخ داده است! لطفا مجدد تلاش کنید"
 
-#: .\apps\account\forms.py:104
+#: apps/account/forms.py:104
 msgid "Entered code is not correct"
 msgstr "کد وارد شده صحیح نیست."
 
-#: .\apps\account\forms.py:120
+#: apps/account/forms.py:120
 msgid "No user found with this phone number"
 msgstr "کاربری با این شماره موبایل یافت نشد"
 
-#: .\apps\account\managers.py:22
+#: apps/account/managers.py:22
 msgid "Entered phone number is not valid"
 msgstr "شماره تلفن وارد شده معتبر نیست"
 
-#: .\apps\account\managers.py:34
+#: apps/account/managers.py:34
 msgid "Users must have a mobile number!"
 msgstr "کاربر باید یک شماره تلفن داشته باشد"
 
-#: .\apps\account\mixins.py:25
+#: apps/account/mixins.py:25
 msgid "You do not have permission to access this page!"
 msgstr "شما اجازه دسترسی به این صفحه را ندارید"
 
-#: .\apps\account\mixins.py:39
+#: apps/account/mixins.py:39
 msgid "You need to complete your profile"
 msgstr "شما باید پروفایل خود را تکمیل کنید"
 
-#: .\apps\account\models.py:20
+#: apps/account/models.py:20
 #, fuzzy
 #| msgid "Access title"
 msgid "Access Title"
 msgstr "عنوان دسترسی"
 
-#: .\apps\account\models.py:24
+#: apps/account/models.py:24
 msgid "Access"
 msgstr "دسترسی"
 
-#: .\apps\account\models.py:37
+#: apps/account/models.py:37
 msgid "Email"
 msgstr "ایمیل"
 
-#: .\apps\account\models.py:38
+#: apps/account/models.py:38
 msgid "First name"
 msgstr "نام"
 
-#: .\apps\account\models.py:39
+#: apps/account/models.py:39
 msgid "Last name"
 msgstr "نام خانوادگی"
 
-#: .\apps\account\models.py:41 .\apps\project\enums.py:9
+#: apps/account/models.py:41 apps/project/enums.py:9
 msgid "Active"
 msgstr "فعال"
 
-#: .\apps\account\models.py:42
+#: apps/account/models.py:42
 msgid "Admin"
 msgstr "ادمین"
 
-#: .\apps\account\models.py:43
+#: apps/account/models.py:43
 msgid "Verify"
 msgstr "تایید شده"
 
-#: .\apps\account\models.py:44
+#: apps/account/models.py:44
 msgid "Is used free subs"
 msgstr "از اشتراک رایگان استفاده شده است ؟"
 
-#: .\apps\account\models.py:45
+#: apps/account/models.py:45
 msgid "Secret token"
 msgstr "توکن"
 
-#: .\apps\account\models.py:46
+#: apps/account/models.py:46
 msgid "Creation time"
 msgstr "زمان ایجاد"
 
-#: .\apps\account\models.py:47
+#: apps/account/models.py:47
 msgid "Update time"
 msgstr "زمان ویرایش"
 
-#: .\apps\account\models.py:53 .\apps\account\models.py:113
-#: .\apps\project\admin.py:42 .\apps\project\models.py:62
-#: .\apps\task\models.py:59
+#: apps/account/models.py:53 apps/account/models.py:113
+#: apps/project/admin.py:42 apps/project/models.py:62 apps/task/models.py:59
 msgid "User"
 msgstr "کاربر"
 
-#: .\apps\account\models.py:54
+#: apps/account/models.py:54
 msgid "Users"
 msgstr "کاربران"
 
-#: .\apps\account\models.py:61
+#: apps/account/models.py:61
 msgid "No Name"
 msgstr "بدون نام"
 
-#: .\apps\account\models.py:114
+#: apps/account/models.py:114
 msgid "Melli code"
 msgstr "کدملی"
 
-#: .\apps\account\models.py:116
+#: apps/account/models.py:116
 msgid "Gender"
 msgstr "جنسیت"
 
-#: .\apps\account\models.py:117
+#: apps/account/models.py:117
 msgid "Date of birth"
 msgstr "تاریخ تولد"
 
-#: .\apps\account\models.py:119
+#: apps/account/models.py:119
 msgid "Province"
 msgstr "استان"
 
-#: .\apps\account\models.py:120
+#: apps/account/models.py:120
 msgid "City"
 msgstr "شهر"
 
-#: .\apps\account\models.py:121
+#: apps/account/models.py:121
 msgid "Picture"
 msgstr "تصویر"
 
-#: .\apps\account\models.py:124
+#: apps/account/models.py:124
 msgid "User profile"
 msgstr "پروفایل کاربر"
 
-#: .\apps\account\models.py:125
+#: apps/account/models.py:125
 msgid "Users profile"
 msgstr "پروفایل کاربران"
 
-#: .\apps\account\validators.py:6
+#: apps/account/validators.py:6
 #, fuzzy
 #| msgid "Entered value must be number"
 msgid "Entered value must be a number"
 msgstr "مقدار وارد شده باید عدد باشد"
 
-#: .\apps\account\views.py:24
+#: apps/account/views.py:24
 msgid "You are successfully logged in."
 msgstr "شما با موفقیت وارد شدید"
 
-#: .\apps\account\views.py:38
+#: apps/account/views.py:38
 msgid "You have been logged out"
 msgstr "شما خارج شدید"
 
-#: .\apps\account\views.py:58
+#: apps/account/views.py:58
 msgid "Your profile has been updated successfully"
 msgstr "پروفایل شما با موفقیت بروزرسانی شد"
 
-#: .\apps\core\models.py:6
+#: apps/chat/models.py:9
+#, fuzzy
+#| msgid "Other"
+msgid "Auther"
+msgstr "سایر"
+
+#: apps/chat/models.py:10
+#, fuzzy
+#| msgid "Messages"
+msgid "Message"
+msgstr "پیام‌ها"
+
+#: apps/core/models.py:6
 msgid "Creation Time"
 msgstr "زمان ایجاد"
 
-#: .\apps\core\models.py:7
+#: apps/core/models.py:7
 msgid "Update Time"
 msgstr "زمان ویرایش"
 
-#: .\apps\core\utils.py:46
+#: apps/core/utils.py:46
 #, python-format
 msgid "%(days)s days ago."
 msgstr "%(days)s روز قبل"
 
-#: .\apps\core\utils.py:48
+#: apps/core/utils.py:48
 #, python-format
 msgid "%(hours)s hours ago."
 msgstr "%(hours)s ساعت قبل"
 
-#: .\apps\core\utils.py:50
+#: apps/core/utils.py:50
 #, python-format
 msgid "%(minutes)s minutes ago."
 msgstr "%(minutes)s دقیقه قبل"
 
-#: .\apps\core\utils.py:52
+#: apps/core/utils.py:52
 msgid "Moments ago"
 msgstr "لحظاتی قبل"
 
-#: .\apps\core\utils.py:65 .\apps\core\utils.py:79
+#: apps/core/utils.py:65 apps/core/utils.py:79
 msgid "Entered data is not correct."
 msgstr "داده وارد شده صحیح نیست."
 
-#: .\apps\project\admin.py:19 .\apps\project\forms.py:20
-#: .\apps\project\models.py:21 .\apps\task\forms.py:17 .\apps\task\models.py:23
+#: apps/project/admin.py:19 apps/project/forms.py:20 apps/project/models.py:21
+#: apps/task/forms.py:17 apps/task/models.py:23
 msgid "Status"
 msgstr "وضعیت"
 
-#: .\apps\project\admin.py:24 .\apps\project\forms.py:21
-#: .\apps\project\models.py:22
+#: apps/project/admin.py:24 apps/project/forms.py:21 apps/project/models.py:22
 msgid "Start Date"
 msgstr "تاریخ شروع"
 
-#: .\apps\project\admin.py:27 .\apps\task\admin.py:25
+#: apps/project/admin.py:27 apps/task/admin.py:25
 msgid "Not Set"
 msgstr "تنظیم نشده"
 
-#: .\apps\project\admin.py:29 .\apps\project\forms.py:22
-#: .\apps\project\models.py:23
+#: apps/project/admin.py:29 apps/project/forms.py:22 apps/project/models.py:23
 msgid "End Date"
 msgstr "تاریخ پایان"
 
-#: .\apps\project\admin.py:47 .\apps\project\apps.py:7
-#: .\apps\project\models.py:28 .\apps\project\models.py:61
-#: .\apps\task\models.py:22
+#: apps/project/admin.py:47 apps/project/apps.py:7 apps/project/models.py:28
+#: apps/project/models.py:61 apps/task/models.py:22
 msgid "Project"
 msgstr "پروژه"
 
-#: .\apps\project\admin.py:52 .\apps\project\models.py:63
+#: apps/project/admin.py:52 apps/project/models.py:63
 msgid "Role"
 msgstr "نقش"
 
-#: .\apps\project\admin.py:57
+#: apps/project/admin.py:57
 msgid "Joined Date"
 msgstr "تلریخ پیوستن"
 
-#: .\apps\project\enums.py:10
+#: apps/project/enums.py:10
 msgid "In progress"
 msgstr "در حال انجام"
 
-#: .\apps\project\enums.py:11 .\apps\task\enums.py:9
+#: apps/project/enums.py:11 apps/task/enums.py:9
 msgid "Completed"
 msgstr "انجام شده"
 
-#: .\apps\project\enums.py:12
+#: apps/project/enums.py:12
 msgid "Canceled"
 msgstr "لغو شده"
 
-#: .\apps\project\enums.py:17
+#: apps/project/enums.py:17
 msgid "Project Admin"
 msgstr "مدیر پروژه"
 
-#: .\apps\project\enums.py:18 .\apps\project\models.py:70
+#: apps/project/enums.py:18 apps/project/models.py:70
 msgid "Project Member"
 msgstr "عضو پروژه"
 
-#: .\apps\project\forms.py:18
+#: apps/project/forms.py:18
 msgid "Project Title"
 msgstr "عنوان پروژه"
 
-#: .\apps\project\forms.py:19 .\apps\project\models.py:19
-#: .\apps\task\forms.py:16 .\apps\task\models.py:21
+#: apps/project/forms.py:19 apps/project/models.py:19 apps/task/forms.py:16
+#: apps/task/models.py:21
 msgid "Description"
 msgstr "توضیحات"
 
-#: .\apps\project\mixins.py:22
+#: apps/project/mixins.py:22
 msgid "You do not have permission to modify this project."
 msgstr "شما اجازه تغییر این پروژه را ندارید"
 
-#: .\apps\project\models.py:18
+#: apps/project/models.py:18
 msgid "Project title"
 msgstr "عنوان پروژه"
 
-#: .\apps\project\models.py:20
+#: apps/project/models.py:20
 msgid "Owner"
 msgstr "مالک"
 
-#: .\apps\project\models.py:29
+#: apps/project/models.py:29
 msgid "Projects"
 msgstr "پروژه ها"
 
-#: .\apps\project\models.py:41
+#: apps/project/models.py:41
 #, fuzzy
 #| msgid "Not Set"
 msgid "None Set"
 msgstr "تنظیم نشده"
 
-#: .\apps\project\models.py:64
+#: apps/project/models.py:64
 msgid "Joined At"
 msgstr "پیوستن در تاریخ"
 
-#: .\apps\project\models.py:71
+#: apps/project/models.py:71
 msgid "Project Members"
 msgstr "عضو های پروژه"
 
-#: .\apps\project\validators.py:8
+#: apps/project/validators.py:8
 msgid "End date cannot be before start date."
 msgstr "تاریخ پایان نمی‌تواند قبل از تاریخ شروع باشد"
 
-#: .\apps\project\validators.py:13
+#: apps/project/validators.py:13
 msgid "Project title contains invalid characters."
 msgstr "عنوان پروژه حاوی کاراکترهای نامعتبر است"
 
-#: .\apps\project\validators.py:18
+#: apps/project/validators.py:18
 msgid "This user is already a member of this project."
 msgstr "این کاربر قبلاً عضو این پروژه شده است"
 
-#: .\apps\project\views.py:41
+#: apps/project/views.py:45
 msgid "Project created successfully."
 msgstr "پروژه با موفقیت بروزرسانی شد"
 
-#: .\apps\project\views.py:58
+#: apps/project/views.py:62
 msgid "Project updated successfully."
 msgstr "پروژه با موفقیت بروزرسانی شد"
 
-#: .\apps\project\views.py:76
+#: apps/project/views.py:80
 msgid "Project deleted successfully."
 msgstr "پروژه با موفقیت حذف شد"
 
-#: .\apps\task\admin.py:27 .\apps\task\forms.py:19 .\apps\task\models.py:25
+#: apps/task/admin.py:27 apps/task/forms.py:19 apps/task/models.py:25
 msgid "Due Date"
 msgstr " تاریخ مقرر"
 
-#: .\apps\task\admin.py:34
+#: apps/task/admin.py:34
 msgid "Comment Count"
 msgstr "تعداد نظرات"
 
-#: .\apps\task\admin.py:40
+#: apps/task/admin.py:40
 msgid "Assigned Users Count"
 msgstr " تعداد کاربران اختصاص داده شده"
 
-#: .\apps\task\admin.py:47
+#: apps/task/admin.py:47
 msgid "Is Overdue"
 msgstr "به‌تأخیر افتاده"
 
-#: .\apps\task\enums.py:7
+#: apps/task/enums.py:7
 msgid "Pending"
 msgstr "در انتظار"
 
-#: .\apps\task\enums.py:8
+#: apps/task/enums.py:8
 msgid "In Progress"
 msgstr "در حال انجام"
 
-#: .\apps\task\enums.py:10
+#: apps/task/enums.py:10
 msgid "Cancelled"
 msgstr "لغو شده"
 
-#: .\apps\task\enums.py:15
+#: apps/task/enums.py:15
 msgid "Low"
 msgstr "کم"
 
-#: .\apps\task\enums.py:16
+#: apps/task/enums.py:16
 msgid "Medium"
 msgstr "متوسط"
 
-#: .\apps\task\enums.py:17
+#: apps/task/enums.py:17
 msgid "High"
 msgstr "بالا"
 
-#: .\apps\task\enums.py:18
+#: apps/task/enums.py:18
 msgid "Critical"
 msgstr "حیاتی"
 
-#: .\apps\task\enums.py:23
+#: apps/task/enums.py:23
 msgid "Individual"
 msgstr "فردی"
 
-#: .\apps\task\enums.py:24
+#: apps/task/enums.py:24
 msgid "Team"
 msgstr "کروهی"
 
-#: .\apps\task\forms.py:15 .\apps\task\models.py:20
+#: apps/task/forms.py:15 apps/task/models.py:20
 msgid "Task Title"
 msgstr "عنوان"
 
-#: .\apps\task\forms.py:18 .\apps\task\models.py:24
+#: apps/task/forms.py:18 apps/task/models.py:24
 msgid "Priority"
 msgstr "اولویت"
 
-#: .\apps\task\forms.py:20
+#: apps/task/forms.py:20
 msgid "Assigned Users"
 msgstr "کاربران اختصاص داده شده"
 
-#: .\apps\task\forms.py:39
+#: apps/task/forms.py:39
 msgid "Comment"
 msgstr "کامنت"
 
-#: .\apps\task\forms.py:54 .\apps\task\models.py:32 .\apps\task\models.py:58
-#: .\apps\task\models.py:74
+#: apps/task/forms.py:54 apps/task/models.py:32 apps/task/models.py:58
+#: apps/task/models.py:74
 msgid "Task"
 msgstr "وضیفه"
 
-#: .\apps\task\forms.py:55 .\apps\task\models.py:75
+#: apps/task/forms.py:55 apps/task/models.py:75
 msgid "Assigned User"
 msgstr "کاربران اختصاص داده شده"
 
-#: .\apps\task\forms.py:56 .\apps\task\models.py:76
+#: apps/task/forms.py:56 apps/task/models.py:76
 msgid "Assignment Type"
 msgstr "نوع تکلیف"
 
-#: .\apps\task\mixins.py:16
+#: apps/task/mixins.py:16
 msgid "You do not have permission to modify this task"
 msgstr "شما اجازه تغییر این وظیفه را ندارید"
 
-#: .\apps\task\mixins.py:25
+#: apps/task/mixins.py:25
 msgid "You are not assigned to this task."
 msgstr "شما به این وظیفه اختصاص داده نشده‌اید"
 
-#: .\apps\task\mixins.py:38
+#: apps/task/mixins.py:38
 msgid "Only project admins can manage tasks"
 msgstr "تنها مدیران پروژه می‌توانند وظایف را مدیریت کنند"
 
-#: .\apps\task\models.py:26
+#: apps/task/models.py:26
 msgid "Created By"
 msgstr "ایجاد شده توسط"
 
-#: .\apps\task\models.py:27
+#: apps/task/models.py:27
 msgid "Assigned To"
 msgstr "اختصاص داده شده به"
 
-#: .\apps\task\models.py:33
+#: apps/task/models.py:33
 msgid "Tasks"
 msgstr "وظایف"
 
-#: .\apps\task\models.py:60
+#: apps/task/models.py:60
 msgid "Comment Content"
 msgstr "محتوای نظر"
 
-#: .\apps\task\models.py:63
+#: apps/task/models.py:63
 msgid "Task Comment"
 msgstr "نظر وظیفه"
 
-#: .\apps\task\models.py:64
+#: apps/task/models.py:64
 msgid "Task Comments"
 msgstr "نظرهای وظیفه"
 
-#: .\apps\task\models.py:79
+#: apps/task/models.py:79
 msgid "Task Assignment"
 msgstr "اختصاص وظیفه"
 
-#: .\apps\task\models.py:80
+#: apps/task/models.py:80
 msgid "Task Assignments"
 msgstr "اختصاص وظیفه ها"
 
-#: .\apps\task\validators.py:11
+#: apps/task/validators.py:11
 msgid "Due date cannot be in the past."
 msgstr "تاریخ مقرر نمی‌تواند در گذشته باشد."
 
-#: .\apps\task\validators.py:16
+#: apps/task/validators.py:16
 msgid "Task title must be at least 5 characters long."
 msgstr "عنوان وظیفه باید حداقل ۵ کاراکتر باشد."
 
-#: .\apps\task\validators.py:21
+#: apps/task/validators.py:21
 msgid "Comment cannot be empty or contain only whitespace."
 msgstr "نظر نمی‌تواند خالی یا فقط شامل فاصله باشد."
 
-#: .\apps\task\validators.py:26
+#: apps/task/validators.py:26
 msgid "An individual task must have an assigned user."
 msgstr "یک وظیفه‌ی فردی باید کاربر اختصاص داده شده داشته باشد."
 
-#: .\apps\task\views.py:39
+#: apps/task/views.py:47
 msgid "Task created successfully"
 msgstr "وظیفه با موفقیت ایجاد شد"
 
-#: .\apps\task\views.py:52
+#: apps/task/views.py:60
 msgid "Task updated successfully"
 msgstr "وظیفه با موفقیت افزوده شدند"
 
-#: .\apps\task\views.py:63
+#: apps/task/views.py:71
 msgid "Task deleted successfully"
 msgstr "وظیفه با موفقیت حذف شد"
 
-#: .\apps\task\views.py:74
+#: apps/task/views.py:82
 msgid "Task status updated successfully"
 msgstr "وظیفه با موفقیت افزوده شدند"
 
-#: .\apps\task\views.py:88
+#: apps/task/views.py:100
 msgid "Comment added successfully"
 msgstr "نظر با موفقیت افزوده شدند"
 
-#: .\apps\task\views.py:99
+#: apps/task/views.py:111
 msgid "Task assigned successfully"
 msgstr "وظیفه با موفقیت اختصاص داده شد"
 
-#: .\config\settings\base.py:116
+#: config/settings/base.py:123
 msgid "Persian"
 msgstr "فارسی"
 
@@ -764,9 +771,6 @@ msgstr "فارسی"
 
 #~ msgid "Cafe Restaurant"
 #~ msgstr "کافه رستوران"
-
-#~ msgid "Other"
-#~ msgstr "سایر"
 
 #~ msgid "Morning"
 #~ msgstr "صبح"
@@ -1296,9 +1300,6 @@ msgstr "فارسی"
 
 #~ msgid "Django administration"
 #~ msgstr "جنگو ادمین"
-
-#~ msgid "Messages"
-#~ msgstr "پیام‌ها"
 
 #~ msgid "Enter a valid URL."
 #~ msgstr "یک آدرس معتبر وارد کنید."
