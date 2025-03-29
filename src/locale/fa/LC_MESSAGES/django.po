@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-04 22:22+0330\n"
+"POT-Creation-Date: 2025-03-29 18:41+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -247,17 +247,59 @@ msgstr "شما خارج شدید"
 msgid "Your profile has been updated successfully"
 msgstr "پروفایل شما با موفقیت بروزرسانی شد"
 
-#: apps/chat/models.py:9
-#, fuzzy
-#| msgid "Other"
-msgid "Auther"
-msgstr "سایر"
+#: apps/chat/enums.py:6
+msgid "Text"
+msgstr "متن"
 
-#: apps/chat/models.py:10
+#: apps/chat/enums.py:7
+msgid "Image"
+msgstr "تصویر کاور"
+
+#: apps/chat/enums.py:8
+#, fuzzy
+#| msgid "File url"
+msgid "File"
+msgstr "لینک فایل"
+
+#: apps/chat/models.py:14
+#, fuzzy
+#| msgid "Gender"
+msgid "Sender"
+msgstr "جنسیت"
+
+#: apps/chat/models.py:15
+msgid "Receiver"
+msgstr ""
+
+#: apps/chat/models.py:16 apps/chat/models.py:21
 #, fuzzy
 #| msgid "Messages"
 msgid "Message"
 msgstr "پیام‌ها"
+
+#: apps/chat/models.py:17
+#, fuzzy
+#| msgid "Messages"
+msgid "Message Type"
+msgstr "پیام‌ها"
+
+#: apps/chat/models.py:18
+msgid "Read"
+msgstr ""
+
+#: apps/chat/models.py:22
+#, fuzzy
+#| msgid "Messages"
+msgid "Messages"
+msgstr "پیام‌ها"
+
+#: apps/chat/views.py:17
+msgid "User Not Found"
+msgstr ""
+
+#: apps/chat/views.py:36
+msgid "New chat started."
+msgstr ""
 
 #: apps/core/models.py:6
 msgid "Creation Time"
@@ -289,6 +331,34 @@ msgstr "لحظاتی قبل"
 #: apps/core/utils.py:65 apps/core/utils.py:79
 msgid "Entered data is not correct."
 msgstr "داده وارد شده صحیح نیست."
+
+#: apps/notification/enums.py:6
+msgid "Account Registration"
+msgstr ""
+
+#: apps/notification/enums.py:7
+#, fuzzy
+#| msgid "Password repeat"
+msgid "Password Reminder"
+msgstr "تکرار گذرواژه"
+
+#: apps/notification/enums.py:8
+msgid "Meeting Request"
+msgstr ""
+
+#: apps/notification/enums.py:12
+msgid "Important Project Message"
+msgstr ""
+
+#: apps/notification/enums.py:13
+#, fuzzy
+#| msgid "Project member"
+msgid "Project Report"
+msgstr "عضو پروژه"
+
+#: apps/notification/enums.py:14
+msgid "Team Invitation"
+msgstr ""
 
 #: apps/project/admin.py:19 apps/project/forms.py:20 apps/project/models.py:21
 #: apps/task/forms.py:17 apps/task/models.py:23
@@ -572,6 +642,11 @@ msgstr "وظیفه با موفقیت اختصاص داده شد"
 msgid "Persian"
 msgstr "فارسی"
 
+#, fuzzy
+#~| msgid "Other"
+#~ msgid "Auther"
+#~ msgstr "سایر"
+
 #~ msgid "Email address"
 #~ msgstr "آدرس الکترونیک"
 
@@ -688,9 +763,6 @@ msgstr "فارسی"
 #~ msgid "Introduction image"
 #~ msgstr "تصویر معرفی"
 
-#~ msgid "Image"
-#~ msgstr "تصویر کاور"
-
 #~ msgid "Pinned"
 #~ msgstr "پین شده"
 
@@ -717,9 +789,6 @@ msgstr "فارسی"
 
 #~ msgid "Video file"
 #~ msgstr "فایل ویدیو"
-
-#~ msgid "File url"
-#~ msgstr "لینک فایل"
 
 #~ msgid "Minutes"
 #~ msgstr "دقیقه"
@@ -1273,9 +1342,6 @@ msgstr "فارسی"
 
 #~ msgid "Tickets"
 #~ msgstr "تیکت‌ها"
-
-#~ msgid "Text"
-#~ msgstr "متن"
 
 #~ msgid "Related file"
 #~ msgstr "فایل مرتبط"

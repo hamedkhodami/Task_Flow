@@ -1,56 +1,45 @@
 import json
-from asgiref.sync import async_to_sync
-from channels.generic.websocket import WebsocketConsumer
+from pyexpat.errors import messages
 
-from .models import Message
+from channels.generic.websocket import AsyncWebsocketConsumer
+from django.dispatch import receiver
+from django.utils.timezone import now
+from apps.account.models import UserModel
+from .models import MessageModel
 
 
-class ChatConsumer(WebsocketConsumer):
+class ChatConsumer(AsyncWebsocketConsumer):
 
-    def new_message(self, message):
-        print(message)
+    async def connect(self):
+        self.receiver_id = self.scope['url_route']['kwargs']['user_id']
+        self.receiver = await UserModel.objects.aget(id=self.receiver_id)
+        self.room_group_name = f'chat_{min(self.scope['user'].id, self.receiver.id)}_{max(self.scope['user'].id, self.receiver.id)}'
 
-    def fetch_message(self):
-        pass
+        await self.channel_layer.group_add(self.room_group_name, self.channel_name)
+        await self.accept()
 
-    command = {
-        'new_message': new_message,
-        'fetch_message': fetch_message
-    }
+    async def disconnect(self, close_code):
+        await self.channel_layer.group_discard(self.room_group_name, self.channel_name)
 
-    def connect(self):
+    async def receive(self, text_data):
+        data = json.loads(text_data)
+        sender = self.scope['user']
 
-        self.room_name = self.scope["url_route"]["kwargs"]["room_name"]
-        self.room_group_name = f"chat_{self.room_name}"
-
-        # Join room group
-        async_to_sync(self.channel_layer.group_add)(
-            self.room_group_name, self.channel_name
+        message = await MessageModel.objects.acreate(
+            sender=sender, receiver= self.receiver, message=data['message']
         )
 
-        self.accept()
+        message_data = {
+            'sender': sender.first_name,
+            'message': message.message,
+            'timestamp': message.created_at.strftime('%Y-%m-%d %H:%M'),
+        }
 
-    def disconnect(self, close_code):
-        # Leave room group
-        async_to_sync(self.channel_layer.group_discard)(
-            self.room_group_name, self.channel_name
+        await self.channel_layer.group_send(
+            self.room_group_name, {'type': 'chat.message', 'message':message_data}
         )
 
-    # Receive message from WebSocket
-    def receive(self, text_data):
-        text_data_json = json.loads(text_data)
-        message = text_data_json["message"]
-        command = text_data_json["command"]
-        self.command[command](self, message)
+    async def chat_message(self, event):
+        await self.send(text_data=json.dumps({'message': event['message']}))
 
-        # Send message to room group
-        async_to_sync(self.channel_layer.group_send)(
-            self.room_group_name, {"type": "chat.message", "message": message}
-        )
 
-    # Receive message from room group
-    def chat_message(self, event):
-        message = event["message"]
-
-        # Send message to WebSocket
-        self.send(text_data=json.dumps({"message": message}))

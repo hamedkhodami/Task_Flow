@@ -5,5 +5,5 @@ app_name = 'chat'
 
 urlpatterns = [
     path('', views.ChatView, name='chat'),
-    path("<str:room_name>/", views.RoomView, name="room"),
+    path("room/<int:user_id>/", views.RoomView, name="room"),
 ]
