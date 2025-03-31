@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext as _
 from django.contrib.auth import get_user_model
 
-from ...apps.core.models import BaseModel
+from apps.core.models import BaseModel
 from .enums import SMSNotificationEnumTypes, EmailNotificationEnumTypes
 # Create your models here.
 
@@ -12,14 +12,14 @@ class SMSNotificationModel(BaseModel):
 
     SMSType = SMSNotificationEnumTypes
 
-    type = models.CharField(_('sms type'), max_length=130, choices=SMSType)
+    type = models.CharField(_('sms type'), max_length=130, choices=SMSType.choices)
     title = models.CharField(_('sms title'), max_length=130)
     description = models.TextField(_('description'), max_length=500, null=True, blank=True)
 
     kwargs = models.JSONField(_('keyword args'), null=True, blank=True)
 
     send_sms = models.BooleanField(_('send sms'), default=True)
-    to_user = models.ForeignKey(User , verbose_name=_('to user'), on_delete=models.CASCADE, related_name='sms')
+    to_user = models.ForeignKey(User , verbose_name=_('to user'), on_delete=models.CASCADE, related_name='sms_notifications')
 
     is_showing = models.BooleanField(_('Is showing'), default=True)
 
@@ -47,7 +47,7 @@ class SMSNotificationModel(BaseModel):
 class EmailNotificationModel(BaseModel):
     EmailType = EmailNotificationEnumTypes
 
-    type = models.CharField(_('email type'), max_length=130, choices=EmailType)
+    type = models.CharField(_('email type'), max_length=130, choices=EmailType.choices)
     title = models.CharField(_('email title'), max_length=130)
     description = models.TextField(_('description'), max_length=500, null=True, blank=True)
 
@@ -55,7 +55,7 @@ class EmailNotificationModel(BaseModel):
     kwargs = models.JSONField(_('keyword args'), null=True, blank=True)
 
     send_email = models.BooleanField(_('send email'), default=True)
-    to_user = models.ForeignKey(User, verbose_name=_('to user'), on_delete=models.CASCADE, related_name='email')
+    to_user = models.ForeignKey(User, verbose_name=_('to user'), on_delete=models.CASCADE, related_name='email_notifications')
 
     is_showing = models.BooleanField(_('Is showing'), default=True)
 
