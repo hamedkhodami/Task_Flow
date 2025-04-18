@@ -1,0 +1,34 @@
+{% load static %}
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title%}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'public/styles/app.css' %}">
+
+    {% block extra_style %}
+    {% endblock %}
+</head>
+
+<body>
+
+{% include "base/headers.html" %}
+
+
+{% block body %}
+{% endblock %}
+
+
+{% include "base/footer.html" %}
+
+  <script rel="" src="{% static 'public/js/main.js' %}"></script>
+
+
+  {% block extra_script %}
+  {% endblock %}
+</body>
+
+</html>

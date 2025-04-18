@@ -8,7 +8,7 @@ from .utils import check_phone_number
 from .models import UserModel, UserProfileModel
 from persian_tools import digits
 
-
+# Custom User creation form
 class UserCreationForm(forms.ModelForm):
     """ A form for creating new users. Includes all the required
     fields, plus a repeated password. """
