@@ -1,14 +1,18 @@
 from django.contrib.auth import login, logout
-from django.urls import reverse_lazy,reverse
-from django.views.generic import FormView, RedirectView, DetailView, UpdateView, ListView
+from django.urls import reverse_lazy, reverse
+from django.shortcuts import redirect, reverse, get_object_or_404, render
+from django.views.generic import FormView, RedirectView, DetailView, UpdateView, ListView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext as _
 from django.contrib import messages
+
+from random import randint
 
 from .models import UserProfileModel,UserModel
 from .mixins import LogoutRequiredMixin,ProfileCompletedRequiredMixin,AccessRequiredMixin
 from .forms import LoginForm, UpdateProfileForm, GetPhoneNumberForm, ResetPassForm, VerifyPhoneNumberForm
 from apps.core.utils import validate_form, toast_form_errors
+from apps.notification.models import SMSNotificationModel
 
 
 
@@ -29,8 +33,73 @@ class LoginView(LogoutRequiredMixin, FormView):
         return super().form_invalid(form)
 
 
+class SendCodeView(LogoutRequiredMixin, View):
+    def get_redirect_url(self):
+        next_url = self.request.GET.get('next', reverse('account:verify_phone'))
+        return next_url
+
+    def get(self, request):
+        code = randint(10000, 99999)
+        request.session['verify_code'] = code
+
+        token = request.session.get('secret_token')
+        try:
+            user = UserModel.objects.get(token=token)
+        except UserModel.DoesNotExist:
+            messages.error(request, _('There is an issue! please try again'))
+            return redirect('account:register')
+
+        SMSNotificationModel.objects.create(
+            type=SMSNotificationModel.TYPES.MOBILE_VERIFICATION_CODE,
+            title=_('Phone number verification code'),
+            kwargs={'code': code},
+            to_user=user,
+            send_notify=True
+        )
+
+        messages.info(request, _('Code sent to you'))
+        return redirect(self.get_redirect_url())
+
+
+class VerifyPhoneNumberView(LogoutRequiredMixin, FormView):
+    template_name = 'account/verify_phone.html'
+    form_class = VerifyPhoneNumberForm
+    success_url = reverse_lazy('')
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+
+        if self.request.method == 'POST':
+            kwargs['data'] = {
+                'code': self.request.POST.get('code'),
+                'verify_code': self.request.session.get('verify_code'),
+                'token': self.request.session.get('secret_token')
+            }
+
+        return kwargs
+
+    def form_valid(self, form):
+        user = form.cleaned_data.get('user')
+
+        # Verify user and clear token
+        user.is_verified = True
+        user.clear_token(self.request)
+        login(self.request, user)
+
+        # Delete code from session
+        if 'verify_code' in self.request.session:
+            del self.request.session['verify_code']
+
+        messages.success(self.request, _('Register done successful'))
+        return redirect('public:welcome')
+
+    def form_invalid(self, form):
+        toast_form_errors(self.request, form)
+        return super().form_invalid(form)
+
+
 class GetPhoneNumberView(LogoutRequiredMixin, FormView):
-    template_name = 'account/password/get_phone.html'
+    template_name = 'account/password/forget_code.html'
     form_class = GetPhoneNumberForm
 
     def get_success_url(self):
@@ -105,7 +174,6 @@ class ResetPassCompleteView(LogoutRequiredMixin, FormView):
     def form_invalid(self, form):
         toast_form_errors(self.request, form)
         return super().form_invalid(form)
-
 
 
 class logoutView(LoginRequiredMixin, RedirectView):

@@ -8,7 +8,6 @@ from .utils import check_phone_number
 from .models import UserModel, UserProfileModel
 from persian_tools import digits
 
-# Custom User creation form
 class UserCreationForm(forms.ModelForm):
     """ A form for creating new users. Includes all the required
     fields, plus a repeated password. """
@@ -50,11 +49,14 @@ class UserCreationForm(forms.ModelForm):
 
         return user
 
-# Login form
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=64, required=True, widget=forms.TextInput(attrs={'placeholder': _('09__')}))
     password = forms.CharField(max_length=128, required=True, widget=forms.PasswordInput)
     remember_me = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._user = None
 
     def clean(self):
         username = self.cleaned_data.get('username')
@@ -85,10 +87,12 @@ class LoginForm(forms.Form):
         if not user:
             raise ValidationError(_('Username or password is not correct'), code='USER-NOT-FOUND')
 
+        self._user = user  # Store the authenticated user
         return {'user': user, 'remember_me': self.cleaned_data.get('remember_me')}
 
+    def get_user(self):
+        return self._user  # Return the stored user
 
-# VerifyPhoneNumber form
 class VerifyPhoneNumberForm(forms.Form):
     code = forms.CharField(max_length=5, required=True, widget=forms.NumberInput)
     verify_code = forms.CharField(max_length=5, required=False, widget=forms.NumberInput)
@@ -105,8 +109,6 @@ class VerifyPhoneNumberForm(forms.Form):
 
         return {'user': user}
 
-
-# GetPhoneNumber form
 class GetPhoneNumberForm(forms.Form):
     phone_number = forms.CharField(max_length=11, widget=forms.TextInput(attrs={'placeholder': '09__'}))
 
@@ -121,8 +123,6 @@ class GetPhoneNumberForm(forms.Form):
 
         return {'user': user}
 
-
-# ResetPass form
 class ResetPassForm(forms.Form):
     password = forms.CharField(max_length=128, min_length=4, required=True, widget=forms.PasswordInput)
     password2 = forms.CharField(max_length=128, min_length=4, required=True, widget=forms.PasswordInput)
@@ -137,8 +137,6 @@ class ResetPassForm(forms.Form):
 
         return password2
 
-
-# UpdateProfile form
 class UpdateProfileForm(forms.ModelForm):
     phone_number = forms.CharField(max_length=11, required=True, widget=forms.TextInput)
 
